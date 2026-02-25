@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С 8 Марта! 🌸</title>
+    <title>С 8 Марта!</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -12,8 +14,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Montserrat', sans-serif;
+            background: #f5e6e8;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,159 +25,294 @@
 
         .container {
             background: white;
-            border-radius: 20px;
-            padding: 50px;
-            max-width: 600px;
+            border-radius: 0;
+            padding: 60px 50px;
+            max-width: 700px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             text-align: center;
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         h1 {
-            color: #764ba2;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            color: #c2185b;
+            font-size: 3em;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
         }
 
-        .emoji {
-            font-size: 4em;
-            margin: 20px 0;
-            animation: bounce 2s infinite;
+        .decorative-pattern {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .pattern-item {
+            aspect-ratio: 1;
+            position: relative;
+        }
+
+        /* Круги */
+        .circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+
+        .circle.red {
+            background: #c2185b;
+        }
+
+        .circle.pink {
+            background: #fce4ec;
+        }
+
+        /* Полукруги и четвертькруги */
+        .semicircle {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .semicircle-left {
+            background: #fce4ec;
+        }
+
+        .semicircle-left::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #c2185b;
+            border-radius: 0 100% 100% 0;
+            left: 0;
+        }
+
+        .semicircle-right {
+            background: #c2185b;
+        }
+
+        .semicircle-right::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fce4ec;
+            border-radius: 100% 0 0 100%;
+            right: 0;
+        }
+
+        /* Квадраты */
+        .square {
+            width: 100%;
+            height: 100%;
+        }
+
+        .square.red {
+            background: #c2185b;
+        }
+
+        .square.pink {
+            background: #fce4ec;
         }
 
         .greeting {
             font-size: 1.3em;
             color: #333;
-            line-height: 1.8;
-            margin: 30px 0;
-            min-height: 150px;
+            line-height: 1.9;
+            margin: 40px 0;
+            min-height: 140px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-weight: 300;
         }
 
         button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #c2185b;
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.1em;
-            border-radius: 50px;
+            padding: 18px 50px;
+            font-size: 1em;
+            border-radius: 0;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-top: 20px;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
         }
 
         button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+            background: #880e4f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(194, 24, 91, 0.3);
         }
 
         button:active {
-            transform: scale(0.95);
+            transform: translateY(0);
         }
 
-        .flowers {
-            font-size: 2em;
-            margin-top: 20px;
+        .decorative-text {
+            font-size: 0.95em;
+            color: #c2185b;
+            margin-top: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
-        @media (max-width: 600px) {
+        .year {
+            font-size: 4em;
+            color: #c2185b;
+            font-weight: 300;
+            margin: 30px 0;
+            letter-spacing: 4px;
+        }
+
+        @media (max-width: 768px) {
             .container {
-                padding: 30px 20px;
+                padding: 40px 30px;
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
+                letter-spacing: 4px;
             }
             
             .greeting {
                 font-size: 1.1em;
+                min-height: 120px;
+            }
+
+            .decorative-pattern {
+                max-width: 300px;
+            }
+
+            .year {
+                font-size: 3em;
+            }
+
+            button {
+                padding: 15px 35px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+                letter-spacing: 2px;
+            }
+
+            .decorative-pattern {
+                max-width: 250px;
+                gap: 6px;
+            }
+
+            .year {
+                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>С 8 Марта! 🎉</h1>
-        <div class="emoji">🌸</div>
-        <div class="greeting" id="greeting">
-            Нажмите на кнопку для поздравления!
+        <h1>8 Марта</h1>
+        
+        <div class="decorative-pattern">
+            <!-- Верхний ряд цветов -->
+            <div class="pattern-item"><div class="circle red"></div></div>
+            <div class="pattern-item"><div class="circle pink"></div></div>
+            <div class="pattern-item"><div class="circle red"></div></div>
+            <div class="pattern-item"><div class="circle pink"></div></div>
+            
+            <!-- Второй ряд -->
+            <div class="pattern-item"><div class="semicircle semicircle-left"></div></div>
+            <div class="pattern-item"><div class="square pink"></div></div>
+            <div class="pattern-item"><div class="semicircle semicircle-right"></div></div>
+            <div class="pattern-item"><div class="square red"></div></div>
+            
+            <!-- Третий ряд -->
+            <div class="pattern-item"><div class="square pink"></div></div>
+            <div class="pattern-item"><div class="semicircle semicircle-left"></div></div>
+            <div class="pattern-item"><div class="square red"></div></div>
+            <div class="pattern-item"><div class="semicircle semicircle-right"></div></div>
+            
+            <!-- Нижний ряд цветов -->
+            <div class="pattern-item"><div class="circle pink"></div></div>
+            <div class="pattern-item"><div class="circle red"></div></div>
+            <div class="pattern-item"><div class="circle pink"></div></div>
+            <div class="pattern-item"><div class="circle red"></div></div>
         </div>
-        <button onclick="getRandomGreeting()">🎁 Получить поздравление</button>
-        <div class="flowers">🌷 🌹 🌺 🌻 🌼</div>
+
+        <div class="year">2025</div>
+
+        <div class="greeting" id="greeting">
+            Желаем вам весеннего настроения, ярких улыбок и море цветов. Пусть каждый день радует новыми возможностями
+        </div>
+
+        <button onclick="getRandomGreeting()">Ещё поздравление</button>
+
+        <div class="decorative-text">
+            наполняй энергией · мотивируй · заряжай эмоциями
+        </div>
     </div>
 
     <script>
         const greetings = [
-            "Желаем вам весеннего настроения, ярких улыбок и море цветов! Пусть каждый день радует новыми возможностями! 🌸",
+            "Желаем вам весеннего настроения, ярких улыбок и море цветов. Пусть каждый день радует новыми возможностями",
             
-            "С праздником весны! Будьте счастливы, любимы и успешны во всех начинаниях! 💐",
+            "С праздником весны! Будьте счастливы, любимы и успешны во всех начинаниях",
             
-            "Пусть этот весенний день принесет море комплиментов, океан цветов и улыбок! С 8 Марта! 🌹",
+            "Пусть этот весенний день принесет море комплиментов и улыбок. С 8 Марта",
             
-            "Желаем вдохновения, радости и исполнения всех желаний! Вы делаете наш коллектив особенным! 🌺",
+            "Желаем вдохновения, радости и исполнения всех желаний. Вы делаете наш коллектив особенным",
             
-            "С праздником! Пусть жизнь будет яркой, как весенние цветы, и сладкой, как праздничный торт! 🌷",
+            "С праздником! Пусть жизнь будет яркой, как весенние цветы, и наполненной радостью",
             
-            "Спасибо за то, что вы есть! Желаем здоровья, счастья и пусть все мечты сбываются! 🌻",
+            "Спасибо за то, что вы есть! Желаем здоровья, счастья и пусть все мечты сбываются",
             
-            "С Международным женским днем! Пусть каждый день будет наполнен теплом, уютом и любовью! 💝",
+            "С Международным женским днем! Пусть каждый день будет наполнен теплом, уютом и любовью",
             
-            "Вы — наше вдохновение! Желаем успехов в работе и гармонии в личной жизни! С 8 Марта! 🌼",
+            "Вы — наше вдохновение! Желаем успехов в работе и гармонии в личной жизни",
             
-            "Пусть весна принесет новые победы, яркие эмоции и незабываемые впечатления! 🎊",
+            "Пусть весна принесет новые победы, яркие эмоции и незабываемые впечатления",
             
-            "С праздником, дорогие коллеги! Вы делаете мир краше просто своим присутствием! 🌸✨"
+            "С праздником, дорогие коллеги! Вы делаете мир краше просто своим присутствием"
         ];
 
-        let usedGreetings = [];
+        let usedGreetings = [0];
 
         function getRandomGreeting() {
-            // Если все поздравления использованы, обнуляем список
             if (usedGreetings.length === greetings.length) {
                 usedGreetings = [];
             }
 
-            // Находим неиспользованные поздравления
-            let availableGreetings = greetings.filter((g, index) => !usedGreetings.includes(index));
+            let availableIndices = [];
+            for (let i = 0; i < greetings.length; i++) {
+                if (!usedGreetings.includes(i)) {
+                    availableIndices.push(i);
+                }
+            }
             
-            // Выбираем случайное
-            let randomIndex = Math.floor(Math.random() * availableGreetings.length);
-            let greeting = availableGreetings[randomIndex];
-            
-            // Запоминаем индекс использованного поздравления
-            usedGreetings.push(greetings.indexOf(greeting));
+            let randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+            usedGreetings.push(randomIndex);
 
-            // Показываем поздравление с анимацией
             const greetingElement = document.getElementById('greeting');
             greetingElement.style.opacity = '0';
+            greetingElement.style.transform = 'translateY(10px)';
             
             setTimeout(() => {
-                greetingElement.textContent = greeting;
+                greetingElement.textContent = greetings[randomIndex];
+                greetingElement.style.transition = 'all 0.6s ease';
                 greetingElement.style.opacity = '1';
-                greetingElement.style.transition = 'opacity 0.5s ease';
+                greetingElement.style.transform = 'translateY(0)';
             }, 300);
         }
     </script>
