@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С 8 Марта! 🌸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #764ba2;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .emoji {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .greeting {
+            font-size: 1.3em;
+            color: #333;
+            line-height: 1.8;
+            margin: 30px 0;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(118, 75, 162, 0.4);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .flowers {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .greeting {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>С 8 Марта! 🎉</h1>
+        <div class="emoji">🌸</div>
+        <div class="greeting" id="greeting">
+            Нажмите на кнопку для поздравления!
+        </div>
+        <button onclick="getRandomGreeting()">🎁 Получить поздравление</button>
+        <div class="flowers">🌷 🌹 🌺 🌻 🌼</div>
+    </div>
+
+    <script>
+        const greetings = [
+            "Желаем вам весеннего настроения, ярких улыбок и море цветов! Пусть каждый день радует новыми возможностями! 🌸",
+            
+            "С праздником весны! Будьте счастливы, любимы и успешны во всех начинаниях! 💐",
+            
+            "Пусть этот весенний день принесет море комплиментов, океан цветов и улыбок! С 8 Марта! 🌹",
+            
+            "Желаем вдохновения, радости и исполнения всех желаний! Вы делаете наш коллектив особенным! 🌺",
+            
+            "С праздником! Пусть жизнь будет яркой, как весенние цветы, и сладкой, как праздничный торт! 🌷",
+            
+            "Спасибо за то, что вы есть! Желаем здоровья, счастья и пусть все мечты сбываются! 🌻",
+            
+            "С Международным женским днем! Пусть каждый день будет наполнен теплом, уютом и любовью! 💝",
+            
+            "Вы — наше вдохновение! Желаем успехов в работе и гармонии в личной жизни! С 8 Марта! 🌼",
+            
+            "Пусть весна принесет новые победы, яркие эмоции и незабываемые впечатления! 🎊",
+            
+            "С праздником, дорогие коллеги! Вы делаете мир краше просто своим присутствием! 🌸✨"
+        ];
+
+        let usedGreetings = [];
+
+        function getRandomGreeting() {
+            // Если все поздравления использованы, обнуляем список
+            if (usedGreetings.length === greetings.length) {
+                usedGreetings = [];
+            }
+
+            // Находим неиспользованные поздравления
+            let availableGreetings = greetings.filter((g, index) => !usedGreetings.includes(index));
+            
+            // Выбираем случайное
+            let randomIndex = Math.floor(Math.random() * availableGreetings.length);
+            let greeting = availableGreetings[randomIndex];
+            
+            // Запоминаем индекс использованного поздравления
+            usedGreetings.push(greetings.indexOf(greeting));
+
+            // Показываем поздравление с анимацией
+            const greetingElement = document.getElementById('greeting');
+            greetingElement.style.opacity = '0';
+            
+            setTimeout(() => {
+                greetingElement.textContent = greeting;
+                greetingElement.style.opacity = '1';
+                greetingElement.style.transition = 'opacity 0.5s ease';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
